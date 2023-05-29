@@ -1,0 +1,36 @@
+<h2>User Operations - This page will show all user of system</h2>
+
+
+
+<table mat-table [dataSource]="users" class="mat-elevation-z8 demo-table">
+  <!-- Position Column -->
+  <ng-container matColumnDef="demo-position">
+    <th mat-header-cell *matHeaderCellDef> ID User. </th>
+    <td mat-cell *matCellDef="let element"> {{element.UserId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="demo-name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="demo-weight">
+    <th mat-header-cell *matHeaderCellDef> Access Account </th>
+    <td mat-cell *matCellDef="let element"> <button mat-raised-button (click)="goToAccountPage(element.UserId)" color="primary">List Account for user</button> </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="demo-symbol">
+    <th mat-header-cell *matHeaderCellDef>  </th>
+    <td mat-cell *matCellDef="let element"></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div>
+<button mat-raised-button (click)="openUserDialog()" color="primary">Create New User</button>
+</div>
